@@ -1,146 +1,99 @@
-Helpy: A Modern Helpdesk Platform
-====================================
-
-Helpy is a modern help desk platform written in Ruby on Rails and released under the MIT license.  The goal of Helpy is to power your support email and ticketing, integrate seamlessly with your app, and run an amazing customer helpcenter.
-
-[![Build Status](https://img.shields.io/travis/helpyio/helpy/master.svg)](https://travis-ci.org/helpyio/helpy) [![Code Climate](https://codeclimate.com/github/helpyio/helpy/badges/gpa.svg)](https://codeclimate.com/github/helpyio/helpy)
-
-![](https://helpy.io/images/github-main-image.png)
-
-
-Sponsor/Support Helpy
-========
-
-Helpy is licensed under the MIT license, and is an open-core project. This means that the core functionality is 100% open source and fully hackable or even re-sellable under the MIT license.  See the features comparison below to understand what is included.
-
-Helpy is a large system and cannot exist purely as a hobby project. If you use it in a money generating capacity, it makes good sense to support the project financially or by becoming an official sponsor or supporter.
-
-https://www.patreon.com/helpyio
-
-Open Source Features
-========
-
-Helpy is an integrated support solution- combining and leveraging synergies between support ticketing, Knowledgebase and a public community.  Each feature is optional however, and can be easily disabled.
-
-- **Multichannel ticketing:** Integrated with inbound email via Sendgrid, Mandrill, Mailgun, etc.
-- **Knowledgebase:** Full text searchable and SEO optimized to help users answer questions before they contact you.
-- **Mobile-friendly:** Support requests come at all times, and Helpy works on all devices out of the box so you can delight customers with prompt answers, from anywhere and at anytime!
-- **Community Support Forums:** Customers and Agents can both answer questions in a publicly accessible forum, and vote both threads and replies up or down accordingly.
-- **Embed Widget:** Helpy Includes a lightweight javascript widget that allows your users to contact you from just about anywhere.
-- **Multi-lingual:** Helpy is fully multi-lingual and can provide support in multiple languages at the same time.  Currently the app includes translations for 19 languages and is easy to translate.
-- **Themeable:** Customize the look and functionality of your Helpy without disturbing the underlying system that makes it all work. Helpy comes with two additional themes, and we hope to add more and get more from the community as time goes on.
-- **Sends HTML email:** Responses to customers can include html, emojis and attachments.
-- **Customizable:** Set colors to match your brand both on the helpcenter, and in the ticketing UI.
-- **GDPR Compliant:** Comply with GDPR right to be forgotten requests by deleting users and their history, or by anonymizing them.
-
-Pro Version
-=========
-
-We also offer a pro version with additional features designed to make your helpcenter even more awesome. This is available as either a turn-key SaaS or AWS/Azure marketplace product.  Both spin up in seconds. Proceeds go directly towards supporting the continued development of the project. Some of the things found in the pro version:
-
-- **Triggers:** Insert events at any point in the ticket lifecycle. This includes an outbound JSON API.
-- **Notifications:** Browser notifications when new tickets are received, you are assigned to a ticket, etc.
-- **Real time UI:** When tickets arrive, they are automatically added to the UI
-- **Custom Views:** Add additional Ticketing queues to highlight just the tickets you need to see
-- **Advanced reporting:** A suite of additional reports on the performance of your ticketing and helpcenter knowledgebase
-- **Advanced search:** Easily filter and find tickets or customers when you have thousands
-- **Customizable Request Forms:** Easily Add questions to the ticket creation forms
-- **AI Support Chatbot:** Create a chatbot for your website to answer up 90% of tier one questions autonomously
-
-
-Getting Started:
-=========
-
-**Helpy Pro - 30 Second one-click install via DigitalOcean**
-
-You can launch the free tier of Helpy Pro using the DigitalOcean Marketplace.  This "one click" marketplace image spins up a dedicated VM within 30 seconds, running Ubuntu. [Launch DigitalOcean Marketplace Image](https://marketplace.digitalocean.com/apps/helpy-pro?refcode=1368cfa70df6).  Use of all features requires either a trial or paid license code, available here: [Helpy License Center](https://support.helpy.io/orders)
-
-**Install Helpy via Docker**
-
-Docker is the recommended way to quickly test or run Helpy in production.
-
-1) Install [Docker](https://get.docker.com/) and docker-compose
-2) Create config file from template `cp docker/.env.sample docker/.env` and edit `docker/.env` to match your needs
-3) Edit `docker/Caddyfile` to include your URL or turn on SSL
-4) Build Helpy from local git checkout `docker-compose build`
-5) Run `docker-compose up -d` to start all of the services
-
-**Install Helpy on your Local System**
-
-Although not required, installing locally is highly recommended and will make it easier for you to customize things like settings, colors and logos to match your site identity.  To begin, clone Helpy from the official repo to your local system:
-
-`git clone https://github.com/helpyio/helpy.git`
-
-**Configure Basic Settings**
-
-There is a settings option in the admin panel to set up things like i18n, system names, colors, the embeddable widget, etc.  There is a full guide to getting set up at: [Configuring Your Helpy Settings](http://support.helpy.io/en/knowledgebase/11-Installing-Helpy/docs/22-Configuring-your-Helpy-Settings)
-
-**Support Multiple Languages (optional)**
-
-Helpy includes support for Multilingual help sites, and multi-language knowledgebase articles.  This page explains how to enable Helpy's international capabilities and provides an overview of what functionality this adds to Helpy: [How To Set Up A Multilingual Helpy Support Knowledgebase](http://support.helpy.io/en/knowledgebase/12-Using-Helpy/docs/9-How-to-set-up-a-multilingual-Helpy-support-knowledgebase)
-
-**Set up your Helpy to send and receive email (optional)**
-
-Helpy has the ability to receive email at your support email addresses and import the messages as tickets in the web interface.  Whenever you or the user replies to the email thread, Helpy captures the discussion and sends out messages accordingly. Follow the tutorial on [Setting Up Your Helpy Installation To Send And Receive Email](http://support.helpy.io/en/knowledgebase/11-Installing-Helpy/docs/14-Setting-up-your-Helpy-installation-to-send-and-receive-email) to set this up.
-
-**Configure oAuth (optional)**
-
-Helpy supports Omniauth login capabilities.  This means you can allow your support users to sign in with a single click via any Omniauth provider- ie. Facebook, Twitter, Gmail, or many others. Read [Setting Up Oauth For Your Helpy](https://github.com/helpyio/helpy/wiki/SSO--Configuring-OAUTH) to see how.
-
-Live Demo
-=========
-
-There is also a live demo with fake data available at [http://demo.helpy.io](http://demo.helpy.io)
-Admin User: `admin@test.com` and password: `12345678`
-
-Installation
-============
-
-Helpy was designed to run on modern cloud providers, although it should work on
-any linux based system.  There is a full guide to installing Helpy in the wiki: https://github.com/helpyio/helpy/wiki
-
-Requirements are:
-
-- Ruby 2.4+
-- Rails 4.2.x
-- Postgres
-- A server like Unicorn, Puma or Passenger
-
-Helpy leverages two external services to help out:
-
-- an email provider like Sendgrid
-- Google Analytics for stats (optional)
-
-
-Contributing
-============
-
-Welcome, and thanks for contributing to Helpy.  Together we are building the best customer support platform in the world.  Here are some of the ways you can contribute:
-
-- Report or fix Bugs
-- Refactoring
-- Improve test coverage-  As with any large and growing codebase, test coverage is not always as good as it could be.  Help improving test coverage is always welcome and will help you learn how Helpy works.  We use Minitest exclusively.
-- Translate the project- The community has already translated Helpy into 18 languages, but there are many more waiting.  We need help getting Helpy translated into as many locales as possible! [Please see the guide to translation](https://github.com/helpyio/helpy/wiki/How-to-translate-Helpy-into-your-language) for more details.
-- Build new features.  There is a backlog of new features that we’d like to see built.  Check out our [roadmap](https://trello.com/b/NuiWsdmK/helpy) for more insight on this, and if you would like to take one on, please get in touch with us to make sure someone is not already working on it.
-
-**General Guidelines:**
-
-- Join us on Slack.  Let me know you wish to contribute. [![Slack Status](https://helpyioslackin.herokuapp.com/badge.svg)](https://helpyioslackin.herokuapp.com)
-- Make your PRs granular.  They should only include one piece of functionality per PR.
-- Check the roadmap: [Trello](https://trello.com/b/NuiWsdmK/helpy) If you want to build a feature, contact us to make sure no one else is already working on it
-- You must provide passing test coverage.  We use minitest, see http://www.rubypigeon.com/posts/minitest-cheat-sheet/?utm_source=rubyweekly&utm_medium=email
-- You also must expose functionality to the API.  We use Grape.  API methods should be tested as well.
-- If your feature/bug fix/enhancement adds or changes text in the project, please create i18n strings in `en.yml` and any other locales you can.
-- We are hugely concerned with user experience, and a nice UI.  Oftentimes that means we may take what you have contributed and “dress it up” or ask you to do the same.
-
-Security Issues
-===============
-
-If you have found a vulnerability or other security problem in Helpy, please *do not open an issue* on GitHub. Instead, contact [hello@helpy.io](mailto: hello@helpy.io) directly by email.  See the [SECURITY](/SECURITY.md) guide to learn more and see a hall of fame of security reporters.
-
-License
-=======
-
-Copyright 2016-2021, Helpy.io, LLC, Scott Miller and Contributors. Helpy Core is released under the MIT open source license.  Please contribute back any enhancements you make.  Also, I would appreciate if you kept the "powered by Helpy" blurb in the footer.  This helps me keep track of how many are using Helpy.
-
-[![Analytics](https://ga-beacon.appspot.com/UA-50151-28/helpy/readme?pixel)](https://github.com/igrigorik/ga-beacon)
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><h1 tabindex="-1" dir="auto"><a id="user-content-helpy-a-modern-helpdesk-platform" class="anchor" aria-hidden="true" tabindex="-1" href="#helpy-a-modern-helpdesk-platform"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy：现代帮助台平台</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 是一个用 Ruby on Rails 编写的现代帮助台平台，并根据 MIT 许可证发布。</font><font style="vertical-align: inherit;">Helpy 的目标是为您的支持电子邮件和票务提供支持，与您的应用程序无缝集成，并运行一个令人惊叹的客户帮助中心。</font></font></p>
+<p dir="auto"><a href="https://travis-ci.org/helpyio/helpy" rel="nofollow"><img src="https://camo.githubusercontent.com/9636e64b1c18da93ae8988a58b010a5f5b1711c1c077970705a0386915b882b2/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f68656c7079696f2f68656c70792f6d61737465722e737667" alt="构建状态" data-canonical-src="https://img.shields.io/travis/helpyio/helpy/master.svg" style="max-width: 100%;"></a> <a href="https://codeclimate.com/github/helpyio/helpy" rel="nofollow"><img src="https://camo.githubusercontent.com/7813d23088cbbea21669e6c3f34659f6df83cb74ed6fe697b42576552f5d48ab/68747470733a2f2f636f6465636c696d6174652e636f6d2f6769746875622f68656c7079696f2f68656c70792f6261646765732f6770612e737667" alt="气候规范" data-canonical-src="https://codeclimate.com/github/helpyio/helpy/badges/gpa.svg" style="max-width: 100%;"></a></p>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/a922edefdd2a4c7712e4cc2161e5573e007acc998f0f0b50f816c868ad58aa12/68747470733a2f2f68656c70792e696f2f696d616765732f6769746875622d6d61696e2d696d6167652e706e67"><img src="https://camo.githubusercontent.com/a922edefdd2a4c7712e4cc2161e5573e007acc998f0f0b50f816c868ad58aa12/68747470733a2f2f68656c70792e696f2f696d616765732f6769746875622d6d61696e2d696d6167652e706e67" alt="" data-canonical-src="https://helpy.io/images/github-main-image.png" style="max-width: 100%;"></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-sponsorsupport-helpy" class="anchor" aria-hidden="true" tabindex="-1" href="#sponsorsupport-helpy"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">赞助/支持 有帮助</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 已获得 MIT 许可，并且是一个开放核心项目。</font><font style="vertical-align: inherit;">这意味着核心功能是 100% 开源的，并且完全可破解，甚至可以在 MIT 许可下重新销售。</font><font style="vertical-align: inherit;">请参阅下面的功能比较以了解其中包含的内容。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 是一个大型系统，不能纯粹作为一个业余爱好项目而存在。</font><font style="vertical-align: inherit;">如果您将其用于创收能力，那么在经济上支持该项目或成为官方赞助商或支持者是很有意义的。</font></font></p>
+<p dir="auto"><a href="https://www.patreon.com/helpyio" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://www.patreon.com/helpyio</font></font></a></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-open-source-features" class="anchor" aria-hidden="true" tabindex="-1" href="#open-source-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开源功能</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 是一个集成的支持解决方案，结合并利用支持票务、知识库和公共社区之间的协同作用。</font><font style="vertical-align: inherit;">然而，每个功能都是可选的，并且可以轻松禁用。</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">多渠道票务：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过 Sendgrid、Mandrill、Mailgun 等与入站电子邮件集成。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">知识库：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全文可搜索并经过 SEO 优化，可帮助用户在与您联系之前回答问题。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">适合移动设备：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持请求随时都会出现，Helpy 可以在所有设备上开箱即用，因此您可以随时随地通过及时的答复来取悦客户！</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">社区支持论坛：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">客户和代理都可以在可公开访问的论坛中回答问题，并相应地对两个话题和回复进行投票。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌入小部件：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有用 包含一个轻量级 JavaScript 小部件，使您的用户可以从任何地方与您联系。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">多语言：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Helpy是完全多语言的，可以同时提供多种语言的支持。</font><font style="vertical-align: inherit;">目前该应用程序包含 19 种语言的翻译，并且易于翻译。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">主题化：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义 Helpy 的外观和功能，而不会干扰使其正常工作的底层系统。</font><font style="vertical-align: inherit;">Helpy 附带了两个额外的主题，我们希望随着时间的推移添加更多主题并从社区获得更多主题。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发送 HTML 电子邮件：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对客户的回复可以包括 html、表情符号和附件。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可定制：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在帮助中心和票务 UI 中设置颜色以匹配您的品牌。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">符合 GDPR：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过删除用户及其历史记录或匿名化来遵守 GDPR 被遗忘权请求。</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-pro-version" class="anchor" aria-hidden="true" tabindex="-1" href="#pro-version"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">专业版</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们还提供带有附加功能的专业版，旨在使您的帮助中心更加出色。</font><font style="vertical-align: inherit;">它可以作为交钥匙 SaaS 或 AWS/Azure 市场产品提供。</font><font style="vertical-align: inherit;">两者都在几秒钟内旋转起来。</font><font style="vertical-align: inherit;">收益直接用于支持项目的持续发展。</font><font style="vertical-align: inherit;">专业版中发现的一些内容：</font></font></p>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">触发器：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在工单生命周期的任意时刻插入事件。</font><font style="vertical-align: inherit;">这包括出站 JSON API。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通知：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收到新工单、为您分配工单等时的浏览器通知。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实时用户界面：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当票证到达时，它们会自动添加到用户界面中</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义视图：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加额外的票务队列以突出显示您需要查看的票证</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级报告：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于票务和帮助中心知识库性能的一套附加报告</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级搜索：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当您有数千个门票或客户时，可以轻松过滤和查找门票或客户</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可定制的请求表单：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">轻松将问题添加到票证创建表单中</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">AI 支持聊天机器人：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为您的网站创建一个聊天机器人，自动回答 90% 的一级问题</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-getting-started" class="anchor" aria-hidden="true" tabindex="-1" href="#getting-started"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">入门：</font></font></h1>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy Pro - 通过 DigitalOcean 30 秒一键安装</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您可以使用 DigitalOcean Marketplace 启动 Helpy Pro 的免费套餐。</font><font style="vertical-align: inherit;">这个“一键式”市场镜像会在 30 秒内启动一个运行 Ubuntu 的专用虚拟机。</font></font><a href="https://marketplace.digitalocean.com/apps/helpy-pro?refcode=1368cfa70df6" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">启动 DigitalOcean 市场图像</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">使用所有功能需要试用或付费许可证代码，可在此处获取：</font></font><a href="https://support.helpy.io/orders" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帮助许可证中心</font></font></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过 Docker 安装 Helpy</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker 是在生产中快速测试或运行 Helpy 的推荐方法。</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font><a href="https://get.docker.com/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和 docker-compose</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从模板创建配置文件</font></font><code>cp docker/.env.sample docker/.env</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并进行编辑</font></font><code>docker/.env</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以满足您的需求</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编辑</font></font><code>docker/Caddyfile</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以包含您的 URL 或打开 SSL</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从本地 git checkout 构建 Helpy</font></font><code>docker-compose build</code></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运行</font></font><code>docker-compose up -d</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以启动所有服务</font></font></li>
+</ol>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本地系统上安装 Helpy</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尽管不是必需的，但强烈建议您进行本地安装，这样您可以更轻松地自定义设置、颜色和徽标等内容，以匹配您的站点标识。</font><font style="vertical-align: inherit;">首先，将 Helpy 从官方存储库克隆到本地系统：</font></font></p>
+<p dir="auto"><code>git clone https://github.com/helpyio/helpy.git</code></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置基本设置</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">管理面板中有一个设置选项，用于设置 i18n、系统名称、颜色、可嵌入小部件等。完整的设置指南位于：配置</font></font><a href="http://support.helpy.io/en/knowledgebase/11-Installing-Helpy/docs/22-Configuring-your-Helpy-Settings" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您的帮助设置</font></font></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持多种语言（可选）</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 包括对多语言帮助网站和多语言知识库文章的支持。</font><font style="vertical-align: inherit;">本页面介绍了如何启用 Helpy 的国际功能，并概述了这为 Helpy 添加了哪些功能：</font></font><a href="http://support.helpy.io/en/knowledgebase/12-Using-Helpy/docs/9-How-to-set-up-a-multilingual-Helpy-support-knowledgebase" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何设置多语言 Helpy 支持知识库</font></font></a></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置您的 Helpy 来发送和接收电子邮件（可选）</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 能够通过您的支持电子邮件地址接收电子邮件，并将消息作为票证导入到 Web 界面中。</font><font style="vertical-align: inherit;">每当您或用户回复电子邮件线程时，Helpy 都会捕获讨论并相应地发送消息。</font></font><a href="http://support.helpy.io/en/knowledgebase/11-Installing-Helpy/docs/14-Setting-up-your-Helpy-installation-to-send-and-receive-email" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按照设置您的帮助安装以发送和接收电子邮件的</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">教程</font><font style="vertical-align: inherit;">进行设置。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">配置 oAuth（可选）</font></font></strong></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 支持 Omniauth 登录功能。</font><font style="vertical-align: inherit;">这意味着您可以允许您的支持用户通过任何 Omniauth 提供商（即）单击一下即可登录。</font><font style="vertical-align: inherit;">Facebook、Twitter、Gmail 或许多其他。</font><font style="vertical-align: inherit;">请阅读</font></font><a href="https://github.com/helpyio/helpy/wiki/SSO--Configuring-OAUTH"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为帮助者设置 Oauth</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以了解具体操作方法。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-live-demo" class="anchor" aria-hidden="true" tabindex="-1" href="#live-demo"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现场演示</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="http://demo.helpy.io" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://demo.helpy.io</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上还有一个带有虚假数据的实时演示</font><font style="vertical-align: inherit;">
+管理员用户：</font></font><code>admin@test.com</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和密码：</font></font><code>12345678</code></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-installation" class="anchor" aria-hidden="true" tabindex="-1" href="#installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 被设计为在现代云提供商上运行，尽管它应该可以在任何基于 Linux 的系统上运行。</font><font style="vertical-align: inherit;">wiki 中有安装 Helpy 的完整指南：</font></font><a href="https://github.com/helpyio/helpy/wiki"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https ://github.com/helpyio/helpy/wiki</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要求是：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">红宝石 2.4+</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">导轨 4.2.x</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Postgres</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">像 Unicorn、Puma 或 Passenger 这样的服务器</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Helpy 利用两个外部服务来提供帮助：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">像 Sendgrid 这样的电子邮件提供商</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Google Analytics 统计（可选）</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-contributing" class="anchor" aria-hidden="true" tabindex="-1" href="#contributing"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎，并感谢您为 Helpy 做出的贡献。</font><font style="vertical-align: inherit;">我们正在共同打造世界上最好的客户支持平台。</font><font style="vertical-align: inherit;">以下是您可以做出贡献的一些方式：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">报告或修复错误</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重构</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提高测试覆盖率-与任何大型且不断增长的代码库一样，测试覆盖率并不总是那么好。</font><font style="vertical-align: inherit;">帮助提高测试覆盖率总是受欢迎的，并将帮助您了解 Helpy 的工作原理。</font><font style="vertical-align: inherit;">我们专门使用 Minitest。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">翻译项&ZeroWidthSpace;&ZeroWidthSpace;目 - 社区已经将 Helpy 翻译成 18 种语言，但还有更多语言等待。</font><font style="vertical-align: inherit;">我们需要帮助将 Helpy 翻译成尽可能多的语言环境！</font><font style="vertical-align: inherit;">详情</font></font><a href="https://github.com/helpyio/helpy/wiki/How-to-translate-Helpy-into-your-language"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅翻译指南。</font></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建新功能。</font><font style="vertical-align: inherit;">我们希望看到大量积压的新功能被构建。</font><font style="vertical-align: inherit;">请查看我们的</font></font><a href="https://trello.com/b/NuiWsdmK/helpy" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">路线图</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，了解更多相关信息，如果您想参与其中，请与我们联系，以确保尚未有人参与其中。</font></font></li>
+</ul>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一般准则：</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入我们的 Slack。</font><font style="vertical-align: inherit;">让我知道您希望做出贡献。</font></font><a href="https://helpyioslackin.herokuapp.com" rel="nofollow"><img src="https://camo.githubusercontent.com/8f147aea581d50e2f076eab5d8d1295bbe90ffd8d362a93bcd592fa9055090ec/68747470733a2f2f68656c7079696f736c61636b696e2e6865726f6b756170702e636f6d2f62616467652e737667" alt="松弛状态" data-canonical-src="https://helpyioslackin.herokuapp.com/badge.svg" style="max-width: 100%;"></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">让你的 PR 更加细化。</font><font style="vertical-align: inherit;">每个 PR 应该只包含一项功能。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">检查路线图：</font></font><a href="https://trello.com/b/NuiWsdmK/helpy" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trello</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想构建一项功能，请联系我们以确保没有其他人正在开发它</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您必须提供通过测试的覆盖率。</font><font style="vertical-align: inherit;">我们使用 minitest，请参阅</font></font><a href="http://www.rubypigeon.com/posts/minitest-cheat-sheet/?utm_source=rubyweekly&amp;utm_medium=email" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://www.rubypigeon.com/posts/minitest-cheat-sheet/?utm_source=rubyweekly&amp;utm_medium=email</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您还必须向 API 公开功能。</font><font style="vertical-align: inherit;">我们用葡萄。</font><font style="vertical-align: inherit;">API 方法也应该进行测试。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您的功能/错误修复/增强添加或更改了项目中的文本，请在</font></font><code>en.yml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以及任何其他可以创建的语言环境中创建 i18n 字符串。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们非常关心用户体验和良好的用户界面。</font><font style="vertical-align: inherit;">通常，这意味着我们可能会拿走您贡献的内容并“打扮一下”或要求您做同样的事情。</font></font></li>
+</ul>
+<h1 tabindex="-1" dir="auto"><a id="user-content-security-issues" class="anchor" aria-hidden="true" tabindex="-1" href="#security-issues"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全问题</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您在 Helpy 中发现漏洞或其他安全问题，请</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不要在 GitHub 上打开问题</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">相反，请</font><font style="vertical-align: inherit;">直接通过电子邮件联系 [ </font></font><a href="mailto:hello@helpy.io"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hello@helpy.io</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ](mailto: </font></font><a href="mailto:hello@helpy.io"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">hello@helpy.io )。</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅</font></font><a href="/helpyio/helpy/blob/master/SECURITY.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安全</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南以了解更多信息并查看安全记者的名人堂。</font></font></p>
+<h1 tabindex="-1" dir="auto"><a id="user-content-license" class="anchor" aria-hidden="true" tabindex="-1" href="#license"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执照</font></font></h1>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权所有 2016-2021，Helpy.io, LLC、Scott Miller 和贡献者。</font><font style="vertical-align: inherit;">Helpy Core 是根据 MIT 开源许可证发布的。</font><font style="vertical-align: inherit;">请回馈您所做的任何改进。</font><font style="vertical-align: inherit;">另外，如果您在页脚中保留“由 Helpy 提供支持”的简介，我将不胜感激。</font><font style="vertical-align: inherit;">这有助于我跟踪有多少人在使用 Helpy。</font></font></p>
+<p dir="auto"><a href="https://github.com/igrigorik/ga-beacon"><img src="https://camo.githubusercontent.com/52d8519f6981afa982bd1bb3d93915386d37f394b25013adb88bc5025e965602/68747470733a2f2f67612d626561636f6e2e61707073706f742e636f6d2f55412d35303135312d32382f68656c70792f726561646d653f706978656c" alt="分析" data-canonical-src="https://ga-beacon.appspot.com/UA-50151-28/helpy/readme?pixel" style="max-width: 100%;"></a></p>
+</article></div>
